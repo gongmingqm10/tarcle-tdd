@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.tarcle.moment.R;
 
-public class CircleFragment extends Fragment{
+public class CircleFragment extends Fragment {
 
     @Nullable
     @Override

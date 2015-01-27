@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.tarcle.moment.R;
 
-public class TopicFragment extends Fragment{
+public class TopicFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
