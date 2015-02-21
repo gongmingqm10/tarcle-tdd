@@ -34,7 +34,7 @@ which is faster with the support of Intel [HAXM](https://software.intel.com/en-u
 
 * Run integration test, which is located in `app/src/androidTest` directory, mainly written by Espresso.
 ```
-./gradlew 
+./gradlew connectedAndroidTest
 ```
 
 ## Reference
@@ -42,7 +42,7 @@ which is faster with the support of Intel [HAXM](https://software.intel.com/en-u
 * [Retrofit Document](http://square.github.io/retrofit/)
 * [Picasso Document](http://square.github.io/picasso/)
 * [ButterKnife Document](http://jakewharton.github.io/butterknife/)
-* [Robolectric Document)](http://robolectric.org/getting-started/)
+* [Robolectric Document](http://robolectric.org/getting-started/)
 * [Espresso Document](https://code.google.com/p/android-test-kit/wiki/EspressoStartGuide)
 * [Calabash README](https://github.com/calabash/calabash-android)
 * [AssertJ Document](http://joel-costigliola.github.io/assertj/assertj-core.html)
