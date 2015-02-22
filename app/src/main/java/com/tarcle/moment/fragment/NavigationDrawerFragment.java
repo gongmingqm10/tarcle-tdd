@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.tarcle.moment.R;
 
@@ -143,7 +142,7 @@ public class NavigationDrawerFragment extends Fragment {
     private void setUpDrawerToggle() {
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),
-                mDrawerLayout, 
+                mDrawerLayout,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
         ) {
@@ -159,7 +158,9 @@ public class NavigationDrawerFragment extends Fragment {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                if (!isAdded()) { return;}
+                if (!isAdded()) {
+                    return;
+                }
                 if (!mUserLearnedDrawer) {
                     mUserLearnedDrawer = true;
                     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -224,11 +225,7 @@ public class NavigationDrawerFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     private ActionBar getActionBar() {

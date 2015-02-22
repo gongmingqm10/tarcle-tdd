@@ -7,10 +7,16 @@ import com.tarcle.moment.activity.RootActivity;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowListView;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static org.robolectric.Robolectric.shadowOf;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
 
 @RunWith(RobolectricTestRunner.class)
@@ -37,4 +43,14 @@ public class NavigationDrawerFragmentTest {
         assertThat(listView.getAdapter().getCount()).isEqualTo(3);
     }
 
+    @Test
+    public void shouldInvokeCallbackWhenItemIsClicked() {
+        RootActivity spyActivity = spy(Robolectric.buildActivity(RootActivity.class).create().start().resume().get());
+        fragment.onAttach(spyActivity);
+
+        int position = 2;
+        ShadowListView shadowListView = shadowOf(fragment.mDrawerListView);
+        shadowListView.performItemClick(position);
+        verify(spyActivity).onNavigationDrawerItemSelected(eq(position));
+    }
 }

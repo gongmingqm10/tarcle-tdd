@@ -25,4 +25,22 @@ public class RootActivityTest {
     public void shouldCreateRootActivity() {
         assertThat(controller.get()).isNotNull();
     }
+    
+    @Test
+    public void shouldShowCircleFragment() {
+        
+    }
+    
+    @Test
+    public void shouldShowTopicFragment() {
+        
+        
+    }
+    
+    @Test
+    public void shouldShowMineFragment(){
+        
+        
+    }
+    
 }
