@@ -1,4 +1,4 @@
-# Tarcle - Android TDD Practise
+# [TarcleTDD](https://github.com/gongmingqm10/tarcle-tdd) [![Build Status](https://travis-ci.org/gongmingqm10/tarcle-tdd.svg?branch=master)](https://travis-ci.org/gongmingqm10/tarcle-tdd)
 
 Tarcle is a personal project which tries to develop modern android app using the traditional TDD practice. The app itself 
 is build based on Android Lollipop using many popular Library, such as [Retrofit](https://github.com/square/retrofit),
