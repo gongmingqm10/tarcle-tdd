@@ -7,6 +7,10 @@ android:
         - extra-google-m2repository
         - extra-android-m2repository
         - sys-img-armeabi-v7a-android-21
+    licenses:
+        - 'android-sdk-preview-license-52d11cd2'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
@@ -16,3 +20,5 @@ before_script:
 
 notifications:
     email: false
+
+sudo: false
