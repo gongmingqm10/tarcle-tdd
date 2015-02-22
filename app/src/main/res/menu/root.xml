@@ -1,7 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".RootActivity">
-    <item android:id="@+id/action_example" android:title="@string/action_example"
-        android:showAsAction="withText|ifRoom" />
+    <item android:id="@+id/action_example" android:title="@string/refresh"
+        android:showAsAction="withText|ifRoom"
+        tools:ignore="AppCompatResource" />
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" android:showAsAction="never" />
+        android:orderInCategory="100" android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
 </menu>
