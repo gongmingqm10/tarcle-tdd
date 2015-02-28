@@ -4,17 +4,15 @@ import android.app.Application;
 
 public class TarcleApp extends Application {
 
-    private TarcleApp instance;
+    private static TarcleApp instance;
 
-    public TarcleApp getInstance() {
+    public static TarcleApp getInstance() {
         return instance;
     }
-
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
     }
-
 }

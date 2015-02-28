@@ -9,7 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.squareup.otto.Subscribe;
 import com.tarcle.moment.R;
+import com.tarcle.moment.model.Circle;
+import com.tarcle.moment.event.BusProvider;
+import com.tarcle.moment.event.RestEvent;
+import com.tarcle.moment.retrofit.RestClient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -28,8 +36,30 @@ public class CircleFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        RestClient.getInstance().getCircleService().index(new RestEvent<List<Circle>>());
+    }
+
+    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         getActivity().setTitle(R.string.circle);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        BusProvider.getInstance().register(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        BusProvider.getInstance().unregister(this);
+    }
+    
+    @Subscribe
+    public void getCircles(ArrayList<Circle> circles) {
+        //TODO show circles in the ListView
     }
 }

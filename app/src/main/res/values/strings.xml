@@ -15,5 +15,6 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="refresh">刷新</string>
+    <string name="nothing_found">糟糕， 没有找到相关内容！</string>
 
 </resources>
