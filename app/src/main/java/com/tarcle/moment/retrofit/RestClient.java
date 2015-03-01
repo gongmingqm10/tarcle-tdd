@@ -7,7 +7,7 @@ import retrofit.RestAdapter;
 
 public class RestClient {
 
-    private static String BASE_URL = "http://54.200.7.85:9090";
+    private static String BASE_URL = "http://192.168.0.9:9090";
 
     private static RestClient instance;
 

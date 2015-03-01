@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@android:id/empty"
         android:text="@string/nothing_found"
+        android:padding="@dimen/list_item_padding"
         />
     <ListView
         android:layout_width="match_parent"

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/list_item_padding"
+    >
+    <ImageView android:layout_height="@dimen/circle_avatar_size"
+        android:layout_width="@dimen/circle_avatar_size"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="@dimen/text_margin"
+        android:id="@+id/circle_avatar"
+        tools:src="@drawable/ic_launcher"
+        />
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@android:color/black"
+            android:id="@+id/circle_name"
+            tools:text="Wu Zetian Circle"
+            />
+        <TextView
+            android:id="@+id/circle_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+            android:textColor="@color/gray"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginBottom="@dimen/text_margin"
+            tools:text="This is the details.This is the details.This is the details.This is the details.This is the details."
+            />
+        <TextView
+            android:id="@+id/circle_status"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Holo.Small"
+            android:textColor="@color/dark_gray"
+            tools:text="Follower: 1540, Role: 30, Topic: 123"
+            />
+    </LinearLayout>
+</LinearLayout>

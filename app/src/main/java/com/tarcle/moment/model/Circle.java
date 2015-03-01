@@ -55,6 +55,8 @@ public class Circle {
         this.topicsCount = topicsCount;
     }
 
+    public Circle() {}
+
     public String getId() {
         return id;
     }
@@ -97,5 +99,24 @@ public class Circle {
 
     public int getTopicsCount() {
         return topicsCount;
+    }
+    
+    public String getAvatar() {
+        return images == null || images.length == 0 ? null : images[0];
+        
+    }
+
+    public Circle setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Circle setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+    
+    public Circle build() {
+        return this;
     }
 }
