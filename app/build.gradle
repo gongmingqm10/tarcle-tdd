@@ -12,10 +12,21 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("../my-release-key.keystore")
+            storePassword "tarcle2015"
+            keyAlias "myKey"
+            keyPassword "tarcle2015"
+        }
+    }
+    
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -36,7 +47,8 @@ dependencies {
     compile 'com.squareup:otto:1.3.6'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.squareup.picasso:picasso:2.5.0'
-    
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
     androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
     

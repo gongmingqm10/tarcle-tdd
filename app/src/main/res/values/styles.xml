@@ -2,5 +2,26 @@
 
     <style name="Theme.TarcleTheme" parent="android:Theme.Holo.Light">
     </style>
+    
+    <style name="UserAvatar" parent="Theme.TarcleTheme">
+        <item name="android:layout_width">@dimen/user_avatar_size</item>
+        <item name="android:layout_height">@dimen/user_avatar_size</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginRight">@dimen/text_margin</item>
+    </style>
+    
+    <style name="BaseText" parent="Theme.TarcleTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/text_margin</item>
+    </style>
+    
+    <style name="MediumText" parent="BaseText">
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.Medium</item>
+    </style>
 
+    <style name="SmallText" parent="BaseText">
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo.Small</item>
+    </style>
+    
 </resources>

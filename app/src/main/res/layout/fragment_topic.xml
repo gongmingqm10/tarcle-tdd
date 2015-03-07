@@ -10,7 +10,7 @@
         android:padding="@dimen/list_item_padding"
         />
     <ListView
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@android:id/list"
         />

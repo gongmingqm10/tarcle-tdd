@@ -18,5 +18,10 @@
     <string name="follow">关注</string>
     <string name="post">帖子</string>
     <string name="role">角色</string>
+    <string name="like">赞</string>
 
+    <string name="default_role_name">Ming Gong</string>
+    <string name="default_topic_content">Default content, cheers</string>
+    <string name="default_formatted_time">9小时前</string>
+    <string name="comment">评论</string>
 </resources>

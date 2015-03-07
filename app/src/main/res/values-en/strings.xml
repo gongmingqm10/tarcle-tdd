@@ -17,5 +17,10 @@
     <string name="follow">Follow</string>
     <string name="post">Post</string>
     <string name="role">Role</string>
+    <string name="like">Like</string>
+    <string name="default_formatted_time">9 hours ago</string>
+    <string name="default_role_name">Ming Gong</string>
+    <string name="default_topic_content">Default content, cheers</string>
+    <string name="comment">Comment</string>
 
 </resources>

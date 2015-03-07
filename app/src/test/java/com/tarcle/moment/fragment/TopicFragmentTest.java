@@ -1,5 +1,8 @@
 package com.tarcle.moment.fragment;
 
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
 import com.squareup.otto.Bus;
 import com.tarcle.moment.activity.RootActivity;
 import com.tarcle.moment.event.BusProviderInjection;
@@ -11,13 +14,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowListView;
 
 import java.util.ArrayList;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.robolectric.Robolectric.shadowOf;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
 
 @RunWith(RobolectricTestRunner.class)
@@ -50,5 +56,22 @@ public class TopicFragmentTest {
         verify(mockedBus).unregister(eq(topicFragment));
     }
     
+    @Test
+    public void shouldInflateDataToAdapter() {
+        ListAdapter adapter = topicFragment.getListAdapter();
+        
+        assertThat(adapter.getCount()).isEqualTo(2);
+        
+        Topic topic = (Topic) adapter.getItem(1);
+        assertThat(topic.getContent()).isEqualTo("Topic 2 content");
+    }
+    
+    @Test
+    public void shouldShowContentInListView() {
+        ShadowListView shadowListView = shadowOf(topicFragment.getListView());
+        
+        int index = shadowListView.findIndexOfItemContainingText("Topic 1 content");
+        assertThat(index).isEqualTo(0);
+    }
     
 }

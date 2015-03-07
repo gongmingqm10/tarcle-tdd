@@ -14,6 +14,7 @@ import com.tarcle.moment.event.BusProvider;
 import com.tarcle.moment.event.RestEvent;
 import com.tarcle.moment.model.Topic;
 import com.tarcle.moment.retrofit.RestClient;
+import com.tarcle.moment.view.TopicListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,6 @@ public class TopicFragment extends ListFragment {
 
     @Subscribe
     public void showCircles(ArrayList<Topic> topics) {
-
+        setListAdapter(new TopicListAdapter(getActivity(), topics));
     }
 }
