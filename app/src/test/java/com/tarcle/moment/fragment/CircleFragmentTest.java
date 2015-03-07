@@ -17,6 +17,7 @@ import org.robolectric.shadows.ShadowListView;
 
 import java.util.ArrayList;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
@@ -39,9 +40,11 @@ public class CircleFragmentTest {
 
         startFragment(circleFragment, RootActivity.class);
 
-        ArrayList<Circle> circles = new ArrayList<>();
-        circles.add(new Circle().setName("Circle Song").setDescription("The circle Song description").build());
-        circles.add(new Circle().setName("Circle Tang").setDescription("The circle Tang description").build());
+        ArrayList<Circle> circles = newArrayList(
+                new Circle().setName("Circle Song").setDescription("The circle Song description").build(),
+                new Circle().setName("Circle Tang").setDescription("The circle Tang description").build()
+                );
+        
         circleFragment.showCircles(circles);
     }
 

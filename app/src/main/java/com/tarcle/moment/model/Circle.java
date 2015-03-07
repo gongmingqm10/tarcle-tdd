@@ -115,7 +115,22 @@ public class Circle {
         this.description = description;
         return this;
     }
-    
+
+    public Circle setRolesCount(int rolesCount) {
+        this.rolesCount = rolesCount;
+        return this;
+    }
+
+    public Circle setFollowersCount(int followersCount) {
+        this.followersCount = followersCount;
+        return this;
+    }
+
+    public Circle setTopicsCount(int topicsCount) {
+        this.topicsCount = topicsCount;
+        return this;
+    }
+
     public Circle build() {
         return this;
     }

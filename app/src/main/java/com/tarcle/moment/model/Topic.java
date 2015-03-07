@@ -29,6 +29,8 @@ public class Topic {
     
     @SerializedName("comments")
     private List<Comment> comments;
+    
+    public Topic() {}
 
     public Topic(String id, String content, String[] images, String location, String time, Role author, 
                  List<Role> followers, List<Comment> comments) {
@@ -72,5 +74,45 @@ public class Topic {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public Topic setId(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public Topic setContent(String content) {
+        this.content = content;
+        return this;
+    }
+
+    public Topic setImages(String[] images) {
+        this.images = images;
+        return this;
+    }
+
+    public Topic setLocation(String location) {
+        this.location = location;
+        return this;
+    }
+
+    public Topic setTime(String time) {
+        this.time = time;
+        return this;
+    }
+
+    public Topic setAuthor(Role author) {
+        this.author = author;
+        return this;
+    }
+
+    public Topic setFollowers(List<Role> followers) {
+        this.followers = followers;
+        return this;
+    }
+
+    public Topic setComments(List<Comment> comments) {
+        this.comments = comments;
+        return this;
     }
 }

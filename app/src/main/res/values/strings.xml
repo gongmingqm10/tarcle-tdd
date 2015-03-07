@@ -2,9 +2,6 @@
 <resources>
 
     <string name="app_name">TA说</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
 
     <string name="circle">圈子</string>
     <string name="topic">话题</string>
@@ -16,5 +13,10 @@
     <string name="action_settings">Settings</string>
     <string name="refresh">刷新</string>
     <string name="nothing_found">糟糕， 没有找到相关内容！</string>
+
+    <string name="circle_status_formatter" formatted="false">关注: %s, 帖子: %s, 角色: %s</string>
+    <string name="follow">关注</string>
+    <string name="post">帖子</string>
+    <string name="role">角色</string>
 
 </resources>

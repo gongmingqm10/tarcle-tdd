@@ -13,4 +13,9 @@
     <string name="refresh">Refresh</string>
     <string name="nothing_found">Woops, nothing found int this page.</string>
 
+    <string name="circle_status_formatter" formatted="false">Followers: %s, Topics: %s, Roles: %s</string>
+    <string name="follow">Follow</string>
+    <string name="post">Post</string>
+    <string name="role">Role</string>
+
 </resources>

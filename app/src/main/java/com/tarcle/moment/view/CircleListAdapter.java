@@ -65,13 +65,14 @@ public class CircleListAdapter extends ArrayAdapter<Circle> {
     }
 
     private String renderStatus(Circle circle) {
-        StringBuilder builder = new StringBuilder("关注: ")
-                .append(circle.getFollowersCount())
-                .append(", 帖子: ")
-                .append(circle.getTopicsCount())
-                .append(", 角色: ")
-                .append(circle.getTopicsCount());
-        return builder.toString();
+        return String.format(
+                "%s: %s, %s: %s, %s: %s",
+                getContext().getString(R.string.follow),
+                circle.getFollowersCount(),
+                getContext().getString(R.string.post),
+                circle.getTopicsCount(), 
+                getContext().getString(R.string.role),
+                circle.getRolesCount());
     }
 
     final class ViewHolder {
