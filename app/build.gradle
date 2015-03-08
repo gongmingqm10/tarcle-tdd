@@ -48,6 +48,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.squareup.picasso:picasso:2.5.0'
     compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'net.hockeyapp.android:HockeySDK:3.5.0'
 
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
     androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
