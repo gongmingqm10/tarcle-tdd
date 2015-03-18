@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 import com.tarcle.moment.R;
+import com.tarcle.moment.retrofit.BaseCallBack;
 import com.tarcle.moment.event.BusProvider;
-import com.tarcle.moment.event.RestEvent;
 import com.tarcle.moment.model.Topic;
 import com.tarcle.moment.retrofit.RestClient;
 import com.tarcle.moment.view.TopicListAdapter;
@@ -37,7 +37,7 @@ public class TopicFragment extends ListFragment {
     public void onResume() {
         super.onResume();
         BusProvider.getInstance().register(this);
-        RestClient.getInstance().getTopicService().index(new RestEvent<List<Topic>>());
+        RestClient.getInstance().getTopicService().index(new BaseCallBack<List<Topic>>());
     }
 
     @Override
