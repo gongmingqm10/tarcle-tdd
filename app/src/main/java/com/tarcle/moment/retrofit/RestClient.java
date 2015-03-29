@@ -2,12 +2,12 @@ package com.tarcle.moment.retrofit;
 
 import com.tarcle.moment.retrofit.service.CircleService;
 import com.tarcle.moment.retrofit.service.TopicService;
+import com.tarcle.moment.utils.ApiEnvironment;
 
 import retrofit.RestAdapter;
 
 public class RestClient {
 
-    private static String BASE_URL = "http://192.168.0.9:9090";
 
     private static RestClient instance;
 
@@ -22,7 +22,7 @@ public class RestClient {
     
     private RestClient() {
         restAdapter = new RestAdapter.Builder()
-                .setEndpoint(BASE_URL)
+                .setEndpoint(ApiEnvironment.BASE_URL)
                 .build();
     }
 

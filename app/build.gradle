@@ -12,6 +12,19 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    
+    productFlavors {
+        dev {
+            applicationId "com.tarcle.moment.dev"
+        }
+        qa {
+            applicationId "com.tarcle.moment.qa"
+        }
+        production {
+            applicationId "com.tarcle.moment.production"
+        }
+
+    }
 
     signingConfigs {
         release {
