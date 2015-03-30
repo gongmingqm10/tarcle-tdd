@@ -21,7 +21,7 @@ android {
             applicationId "com.tarcle.moment.qa"
         }
         production {
-            applicationId "com.tarcle.moment.production"
+            applicationId "com.tarcle.moment"
         }
 
     }
