@@ -2,14 +2,13 @@ package com.tarcle.moment.fragment;
 
 import android.widget.ListView;
 
+import com.tarcle.moment.TarcleRobolectricTestRunner;
 import com.tarcle.moment.activity.RootActivity;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowListView;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,8 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.robolectric.Robolectric.shadowOf;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
 
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
+@RunWith(TarcleRobolectricTestRunner.class)
 public class NavigationDrawerFragmentTest {
 
     private NavigationDrawerFragment fragment;

@@ -14,17 +14,17 @@ public class RestClientTest {
     public void setUp() {
         restClient = restClient.getInstance();
     }
-    
+
     @Test
     public void shouldGetInstance() {
         assertThat(restClient).isNotNull();
     }
-    
+
     @Test
     public void shouldGetTopicService() {
         assertThat(restClient.getTopicService()).isNotNull();
     }
-    
+
     @Test
     public void shouldGetCircleService() {
         assertThat(restClient.getCircleService()).isNotNull();

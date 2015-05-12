@@ -3,6 +3,7 @@ package com.tarcle.moment.fragment;
 import android.widget.ListAdapter;
 
 import com.squareup.otto.Bus;
+import com.tarcle.moment.TarcleRobolectricTestRunner;
 import com.tarcle.moment.activity.RootActivity;
 import com.tarcle.moment.event.BusProviderInjection;
 import com.tarcle.moment.model.Circle;
@@ -11,8 +12,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowListView;
 
 import java.util.ArrayList;
@@ -25,8 +24,7 @@ import static org.mockito.Mockito.verify;
 import static org.robolectric.Robolectric.shadowOf;
 import static org.robolectric.util.FragmentTestUtil.startFragment;
 
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
+@RunWith(TarcleRobolectricTestRunner.class)
 public class CircleFragmentTest {
 
     private CircleFragment circleFragment;
@@ -43,8 +41,8 @@ public class CircleFragmentTest {
         ArrayList<Circle> circles = newArrayList(
                 new Circle().setName("Circle Song").setDescription("The circle Song description").build(),
                 new Circle().setName("Circle Tang").setDescription("The circle Tang description").build()
-                );
-        
+        );
+
         circleFragment.showCircles(circles);
     }
 

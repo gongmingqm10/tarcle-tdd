@@ -1,18 +1,16 @@
 package com.tarcle.moment.activity;
 
 import com.tarcle.moment.R;
+import com.tarcle.moment.TarcleRobolectricTestRunner;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
+@RunWith(TarcleRobolectricTestRunner.class)
 public class RootActivityTest {
 
     private RootActivity activity;
@@ -28,7 +26,7 @@ public class RootActivityTest {
     }
 
     @Test
-    public void shouldUpdtaeTitleWhenCircleFragmentShows() {
+    public void shouldUpdateTitleWhenCircleFragmentShows() {
         activity.onNavigationDrawerItemSelected(0);
         assertThat(activity.getTitle()).isEqualTo(activity.getString(R.string.circle));
     }

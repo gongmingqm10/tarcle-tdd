@@ -4,14 +4,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.tarcle.moment.R;
+import com.tarcle.moment.TarcleRobolectricTestRunner;
 import com.tarcle.moment.model.Circle;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
-import org.robolectric.annotation.Config;
 
 import java.util.ArrayList;
 
@@ -20,8 +19,7 @@ import butterknife.ButterKnife;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(RobolectricTestRunner.class)
-@Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
+@RunWith(TarcleRobolectricTestRunner.class)
 public class CircleListAdapterTest {
 
     private CircleListAdapter adapter;
@@ -43,14 +41,14 @@ public class CircleListAdapterTest {
         TextView circleName = ButterKnife.findById(view, R.id.circle_name);
         assertThat(circleName.getText().toString()).isEqualTo("Circle Song");
     }
-    
+
     @Test
     public void shouldShowFormattedStatus() {
         View view = adapter.getView(1, null, null);
         TextView circleDesc = ButterKnife.findById(view, R.id.circle_status);
         assertThat(circleDesc.getText().toString()).isEqualTo("关注: 30, 帖子: 120, 角色: 99");
     }
-    
+
     @Test
     public void shouldShowDesc() {
         View view = adapter.getView(1, null, null);
