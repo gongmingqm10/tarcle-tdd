@@ -1,10 +1,9 @@
 package com.tarcle.moment;
 
 import org.junit.runners.model.InitializationError;
-import org.robolectric.AndroidManifest;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.SdkConfig;
 import org.robolectric.annotation.Config;
+import org.robolectric.manifest.AndroidManifest;
 
 import java.io.File;
 import java.util.Properties;
@@ -44,11 +43,8 @@ public class TarcleRobolectricTestRunner extends RobolectricTestRunner {
     }
 
     @Override
-    protected SdkConfig pickSdkVersion(
-            AndroidManifest appManifest, Config config) {
-        // current Robolectric supports not the latest android SDK version
-        // so we must downgrade to simulate the latest supported version.
-        config = overwriteConfig(config, "emulateSdk", "18");
-        return super.pickSdkVersion(appManifest, config);
+    protected int pickSdkVersion(Config config, AndroidManifest manifest) {
+        config = overwriteConfig(config, "sdk", "18");
+        return super.pickSdkVersion(config, manifest);
     }
 }

@@ -9,7 +9,7 @@ import retrofit.http.GET;
 import retrofit.http.Path;
 
 public interface TopicService {
-    @GET("/topics")
+    @GET("/topics.json")
     void index(Callback<List<Topic>> callback);
 
     @GET("/topics/{id}")

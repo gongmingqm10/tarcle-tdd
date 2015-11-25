@@ -12,20 +12,19 @@ import com.squareup.picasso.Picasso;
 import com.tarcle.moment.R;
 import com.tarcle.moment.model.Circle;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CircleListAdapter extends ArrayAdapter<Circle> {
     private LayoutInflater inflater;
     private int resource;
-    private ArrayList<Circle> circles;
 
-    public CircleListAdapter(Context context, int resource, ArrayList<Circle> circles) {
+    public CircleListAdapter(Context context, int resource, List<Circle> circles) {
         super(context, resource, circles);
-        this.circles = circles;
         this.resource = resource;
-        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -37,48 +36,47 @@ public class CircleListAdapter extends ArrayAdapter<Circle> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            holder = new ViewHolder();
             convertView = inflater.inflate(resource, null, false);
-            holder.circleName = ButterKnife.findById(convertView, R.id.circle_name);
-            holder.circleAvatar = ButterKnife.findById(convertView, R.id.circle_avatar);
-            holder.circleDesc = ButterKnife.findById(convertView, R.id.circle_desc);
-            holder.circleStatus = ButterKnife.findById(convertView, R.id.circle_status);
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final Circle circle = circles.get(position);
-
-        if (circle.getAvatar() == null) {
-            holder.circleAvatar.setImageResource(R.drawable.tarcle_icon);
-        } else {
-            Picasso.with(getContext()).load(circle.getAvatar()).into(holder.circleAvatar);
-        }
-
-        holder.circleName.setText(circle.getName());
-        holder.circleDesc.setText(circle.getDescription());
-        holder.circleStatus.setText(renderStatus(circle));
-
+        holder.populate(getItem(position));
         return convertView;
-
-    }
-
-    private String renderStatus(Circle circle) {
-        return String.format(
-                "%s: %s, %s: %s, %s: %s",
-                getContext().getString(R.string.follow),
-                circle.getFollowersCount(),
-                getContext().getString(R.string.post),
-                circle.getTopicsCount(), 
-                getContext().getString(R.string.role),
-                circle.getRolesCount());
     }
 
     final class ViewHolder {
-        ImageView circleAvatar;
-        TextView circleName;
-        TextView circleDesc;
-        TextView circleStatus;
+        @Bind(R.id.circle_name)TextView circleName;
+        @Bind(R.id.circle_avatar)ImageView circleAvatar;
+        @Bind(R.id.circle_desc)TextView circleDesc;
+        @Bind(R.id.circle_status)TextView circleStatus;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+
+        public void populate(final Circle circle) {
+            if (circle.getAvatar() == null) {
+                circleAvatar.setImageResource(R.drawable.tarcle_icon);
+            } else {
+                Picasso.with(getContext()).load(circle.getAvatar()).into(circleAvatar);
+            }
+           circleName.setText(circle.getName());
+           circleDesc.setText(circle.getDescription());
+           circleStatus.setText(renderStatus(circle));
+        }
+
+        private String renderStatus(Circle circle) {
+            return String.format(
+                    "%s: %s, %s: %s, %s: %s",
+                    getContext().getString(R.string.follow),
+                    circle.getFollowersCount(),
+                    getContext().getString(R.string.post),
+                    circle.getTopicsCount(),
+                    getContext().getString(R.string.role),
+                    circle.getRolesCount());
+        }
     }
 }

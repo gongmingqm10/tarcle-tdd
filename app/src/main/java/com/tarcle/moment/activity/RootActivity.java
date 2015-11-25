@@ -15,10 +15,6 @@ import com.tarcle.moment.fragment.MineFragment;
 import com.tarcle.moment.fragment.NavigationDrawerFragment;
 import com.tarcle.moment.fragment.TopicFragment;
 
-import net.hockeyapp.android.CrashManager;
-import net.hockeyapp.android.UpdateManager;
-
-
 public class RootActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -92,15 +88,5 @@ public class RootActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
-        checkForCrashes();
-        checkForUpdates();
-    }
-    private void checkForCrashes() {
-        CrashManager.register(this, "c01e5754d72e78f2854c8b72a646cb36");
-    }
-
-    private void checkForUpdates() {
-        // Remove this for store builds!
-        UpdateManager.register(this, "c01e5754d72e78f2854c8b72a646cb36");
     }
 }

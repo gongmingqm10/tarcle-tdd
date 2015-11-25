@@ -9,7 +9,7 @@ import retrofit.http.GET;
 import retrofit.http.Path;
 
 public interface CircleService {
-    @GET("/circles")
+    @GET("/circles.json")
     void index(Callback<List<Circle>> callback);
 
     @GET("/circles/{id}")

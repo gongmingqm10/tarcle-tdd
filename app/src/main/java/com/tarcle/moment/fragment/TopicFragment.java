@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 
 import com.squareup.otto.Subscribe;
 import com.tarcle.moment.R;
+import com.tarcle.moment.event.ApiCallbackEvent;
 import com.tarcle.moment.retrofit.BaseCallBack;
 import com.tarcle.moment.event.BusProvider;
 import com.tarcle.moment.model.Topic;
 import com.tarcle.moment.retrofit.RestClient;
+import com.tarcle.moment.utils.Constants;
 import com.tarcle.moment.view.TopicListAdapter;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class TopicFragment extends ListFragment {
     public void onResume() {
         super.onResume();
         BusProvider.getInstance().register(this);
-        RestClient.getInstance().getTopicService().index(new BaseCallBack<List<Topic>>());
+        RestClient.getInstance().getTopicService().index(new BaseCallBack<List<Topic>>(Constants.EVENT_TOPIC_LIST));
     }
 
     @Override
@@ -47,7 +49,10 @@ public class TopicFragment extends ListFragment {
     }
 
     @Subscribe
-    public void showCircles(ArrayList<Topic> topics) {
-        setListAdapter(new TopicListAdapter(getActivity(), topics));
+    public void apiCallback(ApiCallbackEvent event) {
+        if (Constants.EVENT_TOPIC_LIST.equals(event.getTag())) {
+            List<Topic> circles = (List<Topic>) event.getData();
+            setListAdapter(new TopicListAdapter(getActivity(), circles));
+        }
     }
 }

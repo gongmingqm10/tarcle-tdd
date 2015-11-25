@@ -16,36 +16,36 @@ import com.tarcle.moment.model.Topic;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class TopicCardView extends RelativeLayout {
 
-    @InjectView(R.id.user_avatar)
+    @Bind(R.id.user_avatar)
     protected ImageView userAvatar;
 
-    @InjectView(R.id.role_name)
+    @Bind(R.id.role_name)
     protected TextView roleName;
 
-    @InjectView(R.id.content)
+    @Bind(R.id.content)
     protected TextView topicContent;
 
-    @InjectView(R.id.images_container)
+    @Bind(R.id.images_container)
     protected GridView imageContainer;
 
-    @InjectView(R.id.formatted_time)
+    @Bind(R.id.formatted_time)
     protected TextView formattedTime;
 
-    @InjectView(R.id.like)
+    @Bind(R.id.like)
     protected TextView likeButton;
 
-    @InjectView(R.id.remark)
+    @Bind(R.id.remark)
     protected TextView remarkButton;
 
-    @InjectView(R.id.social_container)
+    @Bind(R.id.social_container)
     protected View socialContainer;
 
-    @InjectView(R.id.followers)
+    @Bind(R.id.followers)
     protected TextView followersText;
 
     public TopicCardView(Context context) {
@@ -63,7 +63,7 @@ public class TopicCardView extends RelativeLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        ButterKnife.inject(this, this);
+        ButterKnife.bind(this, this);
     }
 
     public void showTopic(Topic topic) {

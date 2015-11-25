@@ -10,14 +10,14 @@ import com.tarcle.moment.model.Circle;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
+import org.robolectric.RuntimeEnvironment;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 
 @RunWith(TarcleRobolectricTestRunner.class)
 public class CircleListAdapterTest {
@@ -32,7 +32,7 @@ public class CircleListAdapterTest {
                         .setFollowersCount(30).setTopicsCount(120).setRolesCount(99).build()
         );
 
-        adapter = new CircleListAdapter(Robolectric.application, R.layout.circle_list_item, circles);
+        adapter = new CircleListAdapter(RuntimeEnvironment.application, R.layout.circle_list_item, circles);
     }
 
     @Test
